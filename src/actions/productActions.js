@@ -11,7 +11,8 @@ export const fetchProducts = () => {
     dispatch({ type: FETCH_PRODUCTS });
 
     try {
-      const response = await axios.get('/data/data.json');
+      const url = window.location.hostname === "localhost"? "/data/data.json": "https://raw.githubusercontent.com/beemnet20/product_dashboard/gh-pages/data/data.json"
+      const response = await axios.get(url);
       const products = response.data;
 
       dispatch({ type: FETCH_PRODUCTS_SUCCESS, payload: products });
