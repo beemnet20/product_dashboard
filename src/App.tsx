@@ -8,7 +8,7 @@ import store from './store/configureStore';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import { fetchProducts } from './actions/productActions';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, HashRouter, Link } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -17,25 +17,24 @@ function App() {
 
   return (
     <Provider store={store}>
-      <Router>
+      <HashRouter>
         <div>
           <header>
             <AppBar position='static'>
               <Toolbar style={{ backgroundColor: '#052849' }}>
-                <a href='/product_dashboard'>
+                <Link to="/">
                   <img width={100} src={logo} className='' alt='logo' />
-                </a>
+                </Link>
               </Toolbar>
             </AppBar>
           </header>
           <Routes>
-            <Route path='/' element={<ProductList />} />
-            <Route path='/product_dashboard' element={<ProductList />} />
-            <Route path='/product/:id' element={<ProductDetails />} />
-            {/* Add more routes as needed */}
+            <Route path="/" element={<ProductList />} />
+            <Route path="/product_dashboard" element={<ProductList />} />
+            <Route path="/:id" element={<ProductDetails />} />
           </Routes>
         </div>
-      </Router>
+      </HashRouter>
     </Provider>
   );
 }

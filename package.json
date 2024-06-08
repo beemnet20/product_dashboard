@@ -1,9 +1,10 @@
 {
   "name": "product_dashboard",
   "version": "0.1.0",
-  "homepage": "https://beemnet20.github.io/product_dashboard",
+  "homepage": "/product_dashboard/#",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fontsource/roboto": "^5.0.13",

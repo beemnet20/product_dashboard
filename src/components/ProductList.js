@@ -26,7 +26,7 @@ const ProductList = () => {
 
       {products.length > 0 ? (
         products.map((product) => (
-          <Card sx={{ maxWidth: 345 }} key={product.id}>
+          <Card sx={{ maxWidth: 345, marginBottom: 2 }} key={product.id}>
             <CardMedia
               sx={{ height: 140 }}
               image={product.image}
@@ -39,19 +39,20 @@ const ProductList = () => {
               <Typography variant='body2' color='text.secondary'>
                 {product.details.join().length > 100
                   ? `${product.details.join().substring(0, 100)}...`
-                  : product.details}
+                  : product.details.join()}
               </Typography>
             </CardContent>
             <CardActions>
-              <Button
-                variant='contained'
-                style={{ backgroundColor: '#052849' }}
-                fullWidth
-                size='small'
-                href= {`/product/${product.id}`}
-              >
-                View details
-              </Button>
+              <Link to={`/${product.id}`} style={{ textDecoration: 'none', width: '100%' }}>
+                <Button
+                  variant='contained'
+                  style={{ backgroundColor: '#052849' }}
+                  fullWidth
+                  size='small'
+                >
+                  View details
+                </Button>
+              </Link>
             </CardActions>
           </Card>
         ))
