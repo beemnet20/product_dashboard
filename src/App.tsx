@@ -22,14 +22,16 @@ function App() {
           <header>
             <AppBar position='static'>
               <Toolbar style={{ backgroundColor: '#052849' }}>
-                <img width={100} src={logo} className='' alt='logo' />
+                <a href='/product_dashboard'>
+                  <img width={100} src={logo} className='' alt='logo' />
+                </a>
               </Toolbar>
             </AppBar>
           </header>
           <Routes>
-            <Route path="/" element={<ProductList />} />
-            <Route path="/product_dashboard" element={<ProductList />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path='/' element={<ProductList />} />
+            <Route path='/product_dashboard' element={<ProductList />} />
+            <Route path='/product/:id' element={<ProductDetails />} />
             {/* Add more routes as needed */}
           </Routes>
         </div>
