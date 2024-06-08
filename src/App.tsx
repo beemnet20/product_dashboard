@@ -6,7 +6,9 @@ import Toolbar from '@mui/material/Toolbar';
 import { Provider } from 'react-redux';
 import store from './store/configureStore';
 import ProductList from './components/ProductList';
+import ProductDetails from './components/ProductDetails';
 import { fetchProducts } from './actions/productActions';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -15,18 +17,23 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div>
-        <header>
-          <AppBar position='static'>
-            <Toolbar style={{ backgroundColor: '#052849' }}>
-              <img width={100} src={logo} className='' alt='logo' />
-            </Toolbar>
-          </AppBar>
-        </header>
+      <Router>
         <div>
-          <ProductList />
+          <header>
+            <AppBar position='static'>
+              <Toolbar style={{ backgroundColor: '#052849' }}>
+                <img width={100} src={logo} className='' alt='logo' />
+              </Toolbar>
+            </AppBar>
+          </header>
+          <Routes>
+            <Route path="/" element={<ProductList />} />
+            <Route path="/product_dashboard" element={<ProductList />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            {/* Add more routes as needed */}
+          </Routes>
         </div>
-      </div>
+      </Router>
     </Provider>
   );
 }
